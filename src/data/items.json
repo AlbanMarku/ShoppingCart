@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "book",
+        "price": 7.99,
+        "imageLink": "/imgs/book.jpg"
+    },
+    {
+        "id": 2,
+        "name": "book",
+        "price": 7.99,
+        "imageLink": "/imgs/book.jpg"
+    }
+]

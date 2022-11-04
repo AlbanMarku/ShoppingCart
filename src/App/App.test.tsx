@@ -1,14 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import { describe, it } from 'vitest';
-import { WrappedApp, App } from './App';
+import App from './App';
 
-describe('app', () => {
+describe('app home', () => {
   it('renders hello word', () => {
     render(<App />);
     expect(
       screen.getByRole('heading', {
         level: 1,
       })
-    ).toHaveTextContent('hello');
+    ).toHaveTextContent('I am home');
   });
 });
