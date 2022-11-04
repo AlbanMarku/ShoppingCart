@@ -4,6 +4,7 @@ import ItemCard from '../components/ItemCard';
 function Store() {
   return (
     <div className="Store">
+      <h1>I am store</h1>
       {storeItems.map((item) => (
         <ItemCard
           key={item.id}
