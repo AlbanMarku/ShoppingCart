@@ -8,7 +8,7 @@ interface ItemCardProps {
 }
 
 function ItemCard({ id, name, price, img }: ItemCardProps) {
-  const quantity = 0;
+  const quantity = 0; // Hardcoded
   return (
     <div className="ItemCard">
       <div className="infoArea">
