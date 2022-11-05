@@ -7,8 +7,18 @@ interface ItemCardProps {
   img: string;
 }
 
-function ItemCard({ id, name, price, img }: ItemCardProps) {
+function ItemCard({ id, name, price, img, items, setter }: any) {
   const quantity = 0; // Hardcoded
+  const handleAdd = () => {
+    setter([
+      ...items,
+      {
+        name,
+        id,
+      },
+    ]);
+    console.log(items);
+  };
   return (
     <div className="ItemCard">
       <div className="infoArea">
@@ -20,7 +30,9 @@ function ItemCard({ id, name, price, img }: ItemCardProps) {
       {/* Sort styling for separate conditions */}
       <div className="buttonArea">
         {quantity === 0 ? (
-          <button type="button">Add to cart</button>
+          <button onClick={handleAdd} type="button">
+            Add to cart
+          </button>
         ) : (
           <>
             <button type="button">Less</button>
