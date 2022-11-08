@@ -17,6 +17,7 @@ function ItemCard({ id, name, price, img }: ItemCardProps) {
         ...cartItems,
         {
           name,
+          price,
           id,
         },
       ]);
@@ -24,6 +25,7 @@ function ItemCard({ id, name, price, img }: ItemCardProps) {
       setCartItems([
         {
           name,
+          price,
           id,
         },
       ]);

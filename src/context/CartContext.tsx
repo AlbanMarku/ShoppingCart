@@ -1,8 +1,9 @@
 import { createContext, useContext } from 'react';
 
 export type CartItem = {
-  id: number;
+  price: number;
   name: string;
+  id: number;
 };
 
 type CartItemsStateContent = {
@@ -13,8 +14,9 @@ type CartItemsStateContent = {
 export const CartItemsContext = createContext<CartItemsStateContent>({
   cartItems: [
     {
-      id: 0,
+      price: 0,
       name: '',
+      id: 0,
     },
   ],
   setCartItems: () => {},
