@@ -1,23 +1,33 @@
 import formatCurrency from '../utilities/CurrencyFormatter';
+import { useCartItemsContext } from '../context/CartContext';
 
-interface ItemCardProps {
+type ItemCardProps = {
   id: number;
   name: string;
   price: number;
   img: string;
-}
+};
 
-function ItemCard({ id, name, price, img, items, setter }: any) {
+function ItemCard({ id, name, price, img }: ItemCardProps) {
   const quantity = 0; // Hardcoded
+  const { cartItems, setCartItems } = useCartItemsContext();
   const handleAdd = () => {
-    setter([
-      ...items,
-      {
-        name,
-        id,
-      },
-    ]);
-    console.log(items);
+    if (cartItems.length > 0) {
+      setCartItems([
+        ...cartItems,
+        {
+          name,
+          id,
+        },
+      ]);
+    } else {
+      setCartItems([
+        {
+          name,
+          id,
+        },
+      ]);
+    }
   };
   return (
     <div className="ItemCard">

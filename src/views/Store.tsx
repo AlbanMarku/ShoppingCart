@@ -1,7 +1,7 @@
 import storeItems from '../data/items.json';
 import ItemCard from '../components/ItemCard';
 
-function Store({ items, setter }: any) {
+function Store() {
   return (
     <div className="Store">
       <h1>I am store</h1>
@@ -12,8 +12,6 @@ function Store({ items, setter }: any) {
           name={item.name}
           price={item.price}
           img={item.imageLink}
-          items={items}
-          setter={setter}
         />
       ))}
     </div>

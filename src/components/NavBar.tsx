@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-function NavBar({ items }: any) {
+function NavBar() {
   return (
     <div className="NavBar">
       <h2>I am nav</h2>
@@ -13,7 +13,6 @@ function NavBar({ items }: any) {
             <li>Store</li>
           </Link>
         </ul>
-        <p>{items.name}</p>
       </nav>
     </div>
   );
