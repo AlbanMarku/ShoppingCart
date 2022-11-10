@@ -76,14 +76,13 @@ export function CartProvider({ children }: CartProps) {
   }
 
   function totalCartAmount() {
-    const price = cartItems.reduce((total, item) => {
+    const amount = cartItems.reduce((total, item) => {
       return total + item.quantity;
     }, 0);
-    return price;
+    return amount;
   }
 
   return (
-    // eslint-disable-next-line react/jsx-no-constructed-context-values
     <CartContext.Provider
       // eslint-disable-next-line react/jsx-no-constructed-context-values
       value={{

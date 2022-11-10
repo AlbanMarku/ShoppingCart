@@ -16,7 +16,6 @@ function NavBar() {
             <li>Store</li>
           </Link>
         </ul>
-        <p>{totalCartAmount()}</p>
       </nav>
     </div>
   );

@@ -1,5 +1,6 @@
 import { useCartContext } from '../context/CartContext';
 import formatCurrency from '../utilities/CurrencyFormatter';
+import '../styles/itemCard.css';
 
 type ItemCardProps = {
   id: number;
@@ -9,8 +10,7 @@ type ItemCardProps = {
 };
 
 function ItemCard({ id, name, price, img }: ItemCardProps) {
-  const { getItemQuantity, addItem, decreaseItem, deleteItem } =
-    useCartContext();
+  const { getItemQuantity, addItem, decreaseItem } = useCartContext();
   const amount = getItemQuantity(id);
 
   const handleAdd = () => {
@@ -19,9 +19,6 @@ function ItemCard({ id, name, price, img }: ItemCardProps) {
   const handleSub = () => {
     decreaseItem(id);
   };
-  const handleDel = () => {
-    deleteItem(id);
-  };
 
   return (
     <div className="ItemCard">
@@ -29,9 +26,7 @@ function ItemCard({ id, name, price, img }: ItemCardProps) {
         <h2>{name}</h2>
         <h3>{formatCurrency(price)}</h3>
         <img src={img} alt="product" />
-        <p>{id}</p>
       </div>
-      {/* Sort styling for separate conditions */}
       <div className="buttonArea">
         {amount === 0 ? (
           <button onClick={handleAdd} type="button">
@@ -39,16 +34,12 @@ function ItemCard({ id, name, price, img }: ItemCardProps) {
           </button>
         ) : (
           <>
-            <button type="button">Less</button>
-            <p>Amount goes here</p>
-            <button onClick={handleAdd} type="button">
-              More
-            </button>
             <button onClick={handleSub} type="button">
-              Remove
+              -
             </button>
-            <button onClick={handleDel} type="button">
-              del
+            <p>{amount}</p>
+            <button onClick={handleAdd} type="button">
+              +
             </button>
           </>
         )}

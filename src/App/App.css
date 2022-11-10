@@ -1,0 +1,36 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+.App {
+	border: solid black;
+	min-height: 100vh;
+    display: grid;
+}
+
+main {
+
+	display: flex;
+	flex-direction: column;
+}
+
+.NavBar {
+    border: solid blue;
+    height: 100px;
+}
+
+.Store {
+    border: solid red;
+    flex: 1;
+}
+
+.Home {
+    border: solid green;
+    flex: 1;
+}
+
+.Footer {
+    border: solid pink;
+    height: 50px;
+}

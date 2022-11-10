@@ -1,0 +1,26 @@
+.ItemCard {
+    display: flex;
+    flex-direction: column;
+    border: solid black;
+    padding: 10px;
+}
+
+img {
+    width: 150px;
+}
+
+.infoArea {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    border: solid pink;
+}
+
+.buttonArea {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}

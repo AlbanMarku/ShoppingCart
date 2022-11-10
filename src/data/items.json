@@ -10,5 +10,23 @@
         "name": "book",
         "price": 7.99,
         "imageLink": "/imgs/book.jpg"
+    },
+    {
+        "id": 3,
+        "name": "book",
+        "price": 7.99,
+        "imageLink": "/imgs/book.jpg"
+    },
+    {
+        "id": 4,
+        "name": "book",
+        "price": 7.99,
+        "imageLink": "/imgs/book.jpg"
+    },
+    {
+        "id": 5,
+        "name": "book",
+        "price": 7.99,
+        "imageLink": "/imgs/book.jpg"
     }
 ]
