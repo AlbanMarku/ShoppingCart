@@ -1,5 +1,5 @@
+import { useCartContext } from '../context/CartContext';
 import formatCurrency from '../utilities/CurrencyFormatter';
-import { useCartItemsContext } from '../context/CartContext';
 
 type ItemCardProps = {
   id: number;
@@ -9,28 +9,20 @@ type ItemCardProps = {
 };
 
 function ItemCard({ id, name, price, img }: ItemCardProps) {
-  const quantity = 0; // Hardcoded
-  const { cartItems, setCartItems } = useCartItemsContext();
+  const { getItemQuantity, addItem, decreaseItem, deleteItem } =
+    useCartContext();
+  const amount = getItemQuantity(id);
+
   const handleAdd = () => {
-    if (cartItems.length > 0) {
-      setCartItems([
-        ...cartItems,
-        {
-          name,
-          price,
-          id,
-        },
-      ]);
-    } else {
-      setCartItems([
-        {
-          name,
-          price,
-          id,
-        },
-      ]);
-    }
+    addItem(id);
   };
+  const handleSub = () => {
+    decreaseItem(id);
+  };
+  const handleDel = () => {
+    deleteItem(id);
+  };
+
   return (
     <div className="ItemCard">
       <div className="infoArea">
@@ -41,7 +33,7 @@ function ItemCard({ id, name, price, img }: ItemCardProps) {
       </div>
       {/* Sort styling for separate conditions */}
       <div className="buttonArea">
-        {quantity === 0 ? (
+        {amount === 0 ? (
           <button onClick={handleAdd} type="button">
             Add to cart
           </button>
@@ -49,8 +41,15 @@ function ItemCard({ id, name, price, img }: ItemCardProps) {
           <>
             <button type="button">Less</button>
             <p>Amount goes here</p>
-            <button type="button">More</button>
-            <button type="button">Remove</button>
+            <button onClick={handleAdd} type="button">
+              More
+            </button>
+            <button onClick={handleSub} type="button">
+              Remove
+            </button>
+            <button onClick={handleDel} type="button">
+              del
+            </button>
           </>
         )}
       </div>

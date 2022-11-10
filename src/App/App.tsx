@@ -3,23 +3,12 @@ import { useState, useMemo } from 'react';
 import Home from '../views/Home';
 import Store from '../views/Store';
 import NavBar from '../components/NavBar';
-import { CartItemsContext } from '../context/CartContext';
-import type { CartItem } from '../context/CartContext';
+import { CartProvider } from '../context/CartContext';
 import './App.css';
 
 function App() {
-  const [cartItems, setCartItems] = useState<CartItem[]>([]);
-
-  const contextValue = useMemo(
-    () => ({
-      cartItems,
-      setCartItems,
-    }),
-    [cartItems]
-  );
-
   return (
-    <CartItemsContext.Provider value={contextValue}>
+    <CartProvider>
       <div className="App">
         <NavBar />
         <Routes>
@@ -27,7 +16,7 @@ function App() {
           <Route path="/store" element={<Store />} />
         </Routes>
       </div>
-    </CartItemsContext.Provider>
+    </CartProvider>
   );
 }
 
