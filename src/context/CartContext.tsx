@@ -10,7 +10,9 @@ type ListContext = {
   decreaseItem: (id: number) => void;
   deleteItem: (id: number) => void;
   totalCartAmount: () => number;
+  toggleModal: () => void;
   cartItems: CartItem[];
+  openModal: boolean;
 };
 
 type CartItem = {
@@ -26,6 +28,15 @@ export function useCartContext() {
 
 export function CartProvider({ children }: CartProps) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
+  function toggleModal() {
+    if (openModal) {
+      setOpenModal(false);
+    } else {
+      setOpenModal(true);
+    }
+  }
 
   function getItemQuantity(id: number) {
     const searchedItem = cartItems.find((element) => element.id === id);
@@ -92,6 +103,8 @@ export function CartProvider({ children }: CartProps) {
         decreaseItem,
         deleteItem,
         totalCartAmount,
+        toggleModal,
+        openModal,
       }}
     >
       {children}
