@@ -3,7 +3,6 @@ import Home from '../views/Home';
 import Store from '../views/Store';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
-import SideBar from '../components/SideBar';
 import { CartProvider } from '../context/CartContext';
 import './app.css';
 
@@ -20,9 +19,6 @@ function App() {
         </CartProvider>
         <Footer />
       </main>
-      <aside>
-        <SideBar />
-      </aside>
     </div>
   );
 }

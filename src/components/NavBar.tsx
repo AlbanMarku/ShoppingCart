@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../context/CartContext';
 import CurrencyFormatter from '../utilities/CurrencyFormatter';
+import CartLogo from '../../public/imgs/cart.png';
+import '../styles/navBar.css';
 
 function NavBar() {
-  const { cartItems, totalCartAmount } = useCartContext();
+  const { totalCartAmount } = useCartContext();
   return (
     <div className="NavBar">
-      <h2>I am nav</h2>
+      <h2>Store name</h2>
       <nav>
         <ul className="navLinks">
           <Link to="/">
@@ -17,6 +19,14 @@ function NavBar() {
           </Link>
         </ul>
       </nav>
+      <div className="cartIcon">
+        <button type="button">
+          <img src={CartLogo} alt="cart" />
+          <div>
+            <p id="cartAmount">{totalCartAmount()}</p>
+          </div>
+        </button>
+      </div>
     </div>
   );
 }

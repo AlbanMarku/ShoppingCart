@@ -1,0 +1,36 @@
+.NavBar {
+    display: flex;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+.navLinks {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    align-items: center;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+img {
+    width: 30px;
+}
+
+.cartIcon {
+    margin-left: auto;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#cartAmount {
+    font-size: 1.3rem;
+}
