@@ -6,7 +6,7 @@ import CartLogo from '../../public/imgs/cart.png';
 import '../styles/navBar.css';
 
 function NavBar() {
-  const { totalCartAmount, toggleModal, openModal } = useCartContext();
+  const { totalCartAmount, toggleModal } = useCartContext();
   return (
     <div className="NavBar">
       <h2>Store name</h2>
@@ -33,7 +33,7 @@ function NavBar() {
           </div>
         </button>
       </div>
-      {openModal && <Modal />}
+      <Modal />
     </div>
   );
 }
