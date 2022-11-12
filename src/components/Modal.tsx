@@ -18,15 +18,31 @@ function Modal() {
             <h2>Cart items</h2>
           </div>
           <div className="body">
-            {cartItems.map((item) => {
-              const foundItem = storeItems.find(
-                (storeItem) => storeItem.id === item.id
-              );
-              if (foundItem) {
-                return <p key={item.id}>{foundItem.name}</p>;
-              }
-              return <p key={item.id}>Something messed up here pls debug.</p>;
-            })}
+            <table>
+              <thead>
+                <tr>
+                  <th>sec1</th>
+                  <th>sec1</th>
+                  <th>sec1</th>
+                </tr>
+              </thead>
+            </table>
+            <tbody>
+              {cartItems.map((item) => {
+                const foundItem = storeItems.find(
+                  (storeItem) => storeItem.id === item.id
+                );
+                if (foundItem) {
+                  return (
+                    <tr key={item.id}>
+                      <td>{foundItem.name}</td>
+                      <td>{foundItem.price}</td>
+                    </tr>
+                  );
+                }
+                return <p key={item.id}>Something messed up here pls debug.</p>;
+              })}
+            </tbody>
           </div>
           <div className="footer">
             <button type="button">Checkout</button>

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useCartContext } from '../context/CartContext';
 import Modal from './Modal';
-import CurrencyFormatter from '../utilities/CurrencyFormatter';
 import CartLogo from '../../public/imgs/cart.png';
 import '../styles/navBar.css';
 
