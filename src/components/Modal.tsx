@@ -22,9 +22,7 @@ function Modal() {
       <div className="modalBackground">
         <div className="modalContainer">
           <div className="title">
-            <button type="button">x</button>
-
-            <h2>Cart items</h2>
+            <h1>Cart items</h1>
           </div>
           <div className="body">
             <table>
@@ -96,10 +94,12 @@ function Modal() {
             </table>
           </div>
           <div className="footer">
-            <button onClick={toggleModal} type="button">
+            <button id="close" onClick={toggleModal} type="button">
               Close
             </button>
-            <button type="button">Checkout</button>
+            <button id="open" type="button">
+              Checkout
+            </button>
           </div>
         </div>
       </div>

@@ -1,7 +1,12 @@
+import logo from '../../public/imgs/logo.png';
+
 function Footer() {
   return (
     <div className="Footer">
-      <p>Alban Marku</p>
+      <strong>AlbanMarku</strong>
+      <a href="https://github.com/AlbanMarku">
+        <img className="floating" src={logo} alt="git Logo" />
+      </a>
     </div>
   );
 }
