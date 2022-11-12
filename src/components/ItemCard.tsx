@@ -10,7 +10,8 @@ type ItemCardProps = {
 };
 
 function ItemCard({ id, name, price, img }: ItemCardProps) {
-  const { getItemQuantity, addItem, decreaseItem } = useCartContext();
+  const { getItemQuantity, addItem, decreaseItem, deleteItem } =
+    useCartContext();
   const amount = getItemQuantity(id);
 
   const handleAdd = () => {
@@ -19,29 +20,45 @@ function ItemCard({ id, name, price, img }: ItemCardProps) {
   const handleSub = () => {
     decreaseItem(id);
   };
+  const handleDel = () => {
+    deleteItem(id);
+  };
 
   return (
     <div className="ItemCard">
       <div className="infoArea">
         <h2>{name}</h2>
-        <h3>{formatCurrency(price)}</h3>
         <img src={img} alt="product" />
+        <h3>{formatCurrency(price)}</h3>
       </div>
       <div className="buttonArea">
         {amount === 0 ? (
-          <button onClick={handleAdd} type="button">
+          <button id="addToCart" onClick={handleAdd} type="button">
             Add to cart
           </button>
         ) : (
-          <>
-            <button onClick={handleSub} type="button">
-              -
+          <div className="editArea1">
+            <div className="editArea2">
+              <button
+                className="quantityButton"
+                onClick={handleSub}
+                type="button"
+              >
+                -
+              </button>
+              <p>{amount}</p>
+              <button
+                className="quantityButton"
+                onClick={handleAdd}
+                type="button"
+              >
+                +
+              </button>
+            </div>
+            <button id="deleteButton" onClick={handleDel} type="button">
+              del
             </button>
-            <p>{amount}</p>
-            <button onClick={handleAdd} type="button">
-              +
-            </button>
-          </>
+          </div>
         )}
       </div>
     </div>

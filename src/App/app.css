@@ -4,10 +4,9 @@
   }
 
 .App {
-	border: solid black;
 	min-height: 100vh;
     display: grid;
-    background-color: rgb(192, 192, 192);
+    background-color: rgb(239, 245, 245)
 }
 
 main {
@@ -16,21 +15,18 @@ main {
 }
 
 .NavBar {
-    border: solid blue;
+    background-color: rgb(73, 113, 116);
     height: 50px;
 }
 
 .Store {
-    border: solid red;
     flex: 1;
 }
 
 .Home {
-    border: solid green;
     flex: 1;
 }
 
 .Footer {
-    border: solid pink;
     height: 50px;
 }
