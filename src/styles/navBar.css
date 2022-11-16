@@ -38,3 +38,9 @@ button {
 #cartAmount {
     font-size: 1.3rem;
 }
+
+.signOutArea {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

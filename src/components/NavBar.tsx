@@ -7,7 +7,7 @@ import '../styles/navBar.css';
 
 function NavBar() {
   const { totalCartAmount, toggleModal } = useCartContext();
-  const { googleSignIn, user } = useUserContext();
+  const { googleSignIn, googleSignOut, user } = useUserContext();
 
   const handleSignIn = async () => {
     try {
@@ -16,6 +16,15 @@ function NavBar() {
       console.log(error);
     }
   };
+
+  const handleSignOut = async () => {
+    try {
+      await googleSignOut();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="NavBar">
       <h2>Store name</h2>
@@ -31,7 +40,12 @@ function NavBar() {
       </nav>
       <div className="cartIcon">
         {user.name ? (
-          <p>Welcome {user.name}</p>
+          <div className="signOutArea">
+            <p>Welcome {user.name}</p>
+            <button onClick={handleSignOut} type="button">
+              Sign out
+            </button>
+          </div>
         ) : (
           <button onClick={handleSignIn} type="button">
             Sign in

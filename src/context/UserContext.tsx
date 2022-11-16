@@ -15,6 +15,7 @@ type UserProps = {
 
 type ListContext = {
   googleSignIn: () => void;
+  googleSignOut: () => void;
   user: UserObject;
 };
 
@@ -35,16 +36,30 @@ export function UserProvider({ children }: UserProps) {
     signInWithPopup(auth, provider);
   };
 
+  const googleSignOut = () => {
+    signOut(auth);
+  };
+
+  // useEffect(() => {
+  //   const unsub = onAuthStateChanged(auth, (grabbedUser) => {
+  //     if (grabbedUser?.displayName) setUser({ name: grabbedUser.displayName });
+  //     console.log('yooo', grabbedUser);
+  //   });
+  //   return unsub();
+  // }, []);
+
   useEffect(() => {
-    const unsub = onAuthStateChanged(auth, (grabbedUser) => {
-      if (grabbedUser?.displayName) setUser({ name: grabbedUser.displayName });
-      console.log('user', grabbedUser);
+    onAuthStateChanged(auth, (grabbedUser) => {
+      if (grabbedUser) {
+        if (grabbedUser.displayName) setUser({ name: grabbedUser.displayName });
+      } else {
+        setUser({ name: '' });
+      }
     });
-    return unsub();
   }, []);
 
   return (
-    <UserContext.Provider value={{ googleSignIn, user }}>
+    <UserContext.Provider value={{ googleSignIn, googleSignOut, user }}>
       {children}
     </UserContext.Provider>
   );
